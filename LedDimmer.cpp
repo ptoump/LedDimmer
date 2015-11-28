@@ -72,7 +72,7 @@ int LedDimmer::calcStep(const int duration, const int to)
 
 void LedDimmer::dim(const int step_temp, const int to_Level) 
 {
-  toLevel = to_Level;
+  toLevel = (int)( (to_Level * 255L) / 100. );
   step = step_temp;
   delta = ( toLevel - curLevel ) < 0 ? -1 : 1;
   prevMillis = millis();
